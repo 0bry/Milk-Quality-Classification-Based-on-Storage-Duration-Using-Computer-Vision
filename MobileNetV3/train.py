@@ -4,14 +4,15 @@ from tensorflow.keras.preprocessing import image_dataset_from_directory
 from tensorflow.keras.applications import MobileNetV3Large
 from tensorflow.keras.applications.mobilenet_v3 import preprocess_input
 from tensorflow.keras import layers, models, optimizers, callbacks
+import matplotlib.pyplot as plt
 import os
 
-DATASET_PATH = "data"  
-IMAGE_SIZE = (224, 224) 
+DATASET_PATH = "data"
+IMAGE_SIZE = (224, 224)
 BATCH_SIZE = 32
 VALIDATION_SPLIT = 0.2
 SEED = 123
-NUM_CLASSES = 9
+NUM_CLASSES = 10
 EPOCHS = 10
 LOG_FILENAME = "training_log.txt"
 
@@ -31,7 +32,7 @@ class LogTxtCallback(tf.keras.callbacks.Callback):
 def main():
     if os.path.exists(LOG_FILENAME):
         os.remove(LOG_FILENAME)
-    
+
     train_ds = image_dataset_from_directory(
         DATASET_PATH,
         validation_split=VALIDATION_SPLIT,
@@ -40,7 +41,7 @@ def main():
         image_size=IMAGE_SIZE,
         batch_size=BATCH_SIZE
     )
-    
+
     val_ds = image_dataset_from_directory(
         DATASET_PATH,
         validation_split=VALIDATION_SPLIT,
@@ -64,17 +65,15 @@ def main():
     inputs = tf.keras.Input(shape=(*IMAGE_SIZE, 3))
     x = layers.Lambda(preprocess_input)(inputs)
     x = base_model(x, training=False)
-    x = layers.GlobalAveragePooling2D()(x)  
-    x = layers.Dropout(0.2)(x)  
+    x = layers.GlobalAveragePooling2D()(x)
+    x = layers.Dropout(0.2)(x)
     outputs = layers.Dense(NUM_CLASSES, activation='softmax')(x)
 
     model = models.Model(inputs, outputs)
 
-    model.summary()
-
     model.compile(
         optimizer=optimizers.Adam(),
-        loss='sparse_categorical_crossentropy',  
+        loss='sparse_categorical_crossentropy',
         metrics=['accuracy']
     )
 
@@ -89,9 +88,25 @@ def main():
         callbacks=[checkpoint_cb, earlystop_cb, logtxt_cb]
     )
 
-    print("Training History:")
-    for key, values in history.history.items():
-        print(f"{key}: {values}")
+    plt.figure()
+    plt.plot(history.epoch, history.history['loss'], label='Training Loss')
+    plt.plot(history.epoch, history.history['val_loss'], label='Validation Loss')
+    plt.title('Model Loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.legend(loc='upper right')
+    plt.savefig("loss_curve.png")
+    plt.show()
+
+    plt.figure()
+    plt.plot(history.epoch, history.history['accuracy'], label='Training Accuracy')
+    plt.plot(history.epoch, history.history['val_accuracy'], label='Validation Accuracy')
+    plt.title('Model Accuracy')
+    plt.xlabel('Epoch')
+    plt.ylabel('Accuracy')
+    plt.legend(loc='lower right')
+    plt.savefig("accuracy_curve.png")
+    plt.show()
 
     print("Training complete. Model saved as 'milk_quality_model.h5'.")
     print(f"Training log saved in '{LOG_FILENAME}'.")

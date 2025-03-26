@@ -1,4 +1,4 @@
-## Model Comparison Results
+## Klasifikasi Kualitas Susu Berdasarkan Lama Penyimpanan Menggunakan Computer Vision
 
 Dataset yang digunakan terdiri dari foto susu di dalam petri dish yang diambil dari atas setiap 6 jam, mulai dari 0 jam hingga 48 jam. Total terdapat 9 kelas susu berdasarkan waktu penyimpanan.
 

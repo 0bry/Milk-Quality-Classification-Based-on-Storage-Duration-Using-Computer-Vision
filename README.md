@@ -15,16 +15,16 @@ Seluruh model dilatih menggunakan dataset yang sama.
 
 Recap hasil training tiap model
 
-**1. YOLOv11-classification**
+**1. YOLOv11-classification**<br>
 <img src="https://github.com/0bry/milk_length/blob/cf0a5e9c3487ed11d106564ce3c6b09f94dd0b6d/YOLOv11-classification/runs/classify/train3/results.png" alt="App Screenshot" width="50%" /><br>
 
-**2. MobileNetV3**
+**2. MobileNetV3**<br>
 <img src="https://github.com/0bry/milk_length/blob/d5925c69f75fd2955eaaa74c1a333b84689df529/MobileNetV3/train2/accuracy_curve.png" alt="App Screenshot" width="50%" /><img src="https://github.com/0bry/milk_length/blob/d5925c69f75fd2955eaaa74c1a333b84689df529/MobileNetV3/train2/loss_curve.png" alt="App Screenshot" width="50%" /><br>
 
-**3. EfficientNetB0**
+**3. EfficientNetB0**<br>
 <img src="https://github.com/0bry/milk_length/blob/cf0a5e9c3487ed11d106564ce3c6b09f94dd0b6d/EfficientNetB0/Figure_1.png" alt="App Screenshot" width="80%" /><br>
 
-**4. ResNet18**
+**4. ResNet18**<br>
 <img src="https://github.com/0bry/milk_length/blob/cf0a5e9c3487ed11d106564ce3c6b09f94dd0b6d/ResNet18/train4/training_summary.png" alt="App Screenshot" width="80%" /><br>
 
 Sekian dari hasil pengerjaan saya terima kasih banyak 🙏🙏🙏

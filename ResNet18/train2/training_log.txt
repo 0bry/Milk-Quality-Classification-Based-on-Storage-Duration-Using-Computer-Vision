@@ -1,0 +1,11 @@
+Training Log
+Epoch 1: Train Loss=0.5831, Train Acc=0.7970, Val Loss=4.2262, Val Acc=0.6225 -- Best model saved
+Epoch 2: Train Loss=0.2541, Train Acc=0.9250, Val Loss=3.0011, Val Acc=0.4250
+Epoch 3: Train Loss=0.1759, Train Acc=0.9350, Val Loss=0.6085, Val Acc=0.8175 -- Best model saved
+Epoch 4: Train Loss=0.1471, Train Acc=0.9525, Val Loss=2.2791, Val Acc=0.6625
+Epoch 5: Train Loss=0.1140, Train Acc=0.9650, Val Loss=0.0506, Val Acc=0.9825 -- Best model saved
+Epoch 6: Train Loss=0.0542, Train Acc=0.9844, Val Loss=22.0059, Val Acc=0.1875
+Epoch 7: Train Loss=0.0563, Train Acc=0.9875, Val Loss=2.6822, Val Acc=0.6500
+Epoch 8: Train Loss=0.0519, Train Acc=0.9863, Val Loss=0.7656, Val Acc=0.8200
+Epoch 9: Train Loss=0.0381, Train Acc=0.9894, Val Loss=0.3182, Val Acc=0.9275
+Epoch 10: Train Loss=0.0398, Train Acc=0.9888, Val Loss=0.0686, Val Acc=0.9650
